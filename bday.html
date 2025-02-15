@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="bday.css" rel="stylesheet">
+    <link rel="icon" type="png" href="5699247d-a2b3-486e-b858-30d3dfb1a5d4-removebg-preview.png">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="colorDiv">
+            <div class="alignFlex">
+                <div class="photo">Lorem, ipsum dolor.</div>
+            </div>
+        </div>
+
+        <!-- <div class="colorDiv">
+            <div class="letter"></div>
+            <div class="heart-envelope"></div>
+            <div class="top-flap">
+                <div class="heart"></div>
+            </div>
+        </div> -->
+        <div class="balloons">
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+            <img src="pinkBalloon-removebg-preview.png" alt="balloons"  >
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        // Get all balloon images
+        const balloonImages = document.querySelectorAll(".balloons img");
+        let clickCount = 0;
+
+        // Iterate through each image and attach the event listener
+        balloonImages.forEach(balloonImage => {
+            balloonImage.addEventListener("click", () => {
+                let canvas = document.createElement("canvas");
+                canvas.width = 600;
+                canvas.height = 600;
+                balloonImage.style.visibility = "hidden";
+                confetti({
+                    particleCount: 200,
+                    spread: 45,
+                    scalar: 0.8,
+                    origin: {
+                        x: balloonImage.getBoundingClientRect().left / window.innerWidth,
+                        y: balloonImage.getBoundingClientRect().top / window.innerHeight,
+                    },
+                    gravity: 0.9,
+                });
+                clickCount++;
+                if (clickCount === balloonImage.length) {
+                    setTimeout(() => {
+                        resetBalloons();
+                    }, 1000);
+                }
+            });
+        });
+        function resetBalloons() {
+            balloonImages.forEach((balloonImage) => {
+                balloonImage.style.visibility = "visible";
+                const parent = balloon.parentNode;
+                parent.removeChild(balloonImage);
+                parent.appendChild(balloonImage);
+            });
+            clickCount = 0;
+        };
+
+    </script>
+</body>
+
+</html>
